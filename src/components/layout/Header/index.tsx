@@ -16,8 +16,8 @@ const Header = () => {
       exact: true,
     },
     {
-      link: '/users',
-      label: 'Пользователи',
+      link: '/task',
+      label: 'Задачи',
     },
     {
       link: '/statistics',

@@ -1,6 +1,7 @@
 const path = require('path');
 const merge = require('webpack-merge').merge;
 const crypto = require('crypto');
+const dotenv = require('dotenv');
 
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const DefinePlugin = require('webpack').DefinePlugin;
@@ -15,8 +16,27 @@ const isDevMode = process.env.NODE_ENV === 'development';
 const buildDate = new Intl.DateTimeFormat('ru', {
   timeStyle: 'medium',
   dateStyle: 'short',
-}).format(new Date()).toString();
+})
+  .format(new Date())
+  .toString();
+
 const buildHash = crypto.createHash('md5').update(buildDate).digest('hex');
+
+const getEnvKeys = (params, condition = '') =>
+  Object.keys(params).reduce((prev, next) => {
+    if (!!condition) {
+      if (next.includes(condition)) {
+        prev[`process.env.${next}`] = JSON.stringify(process.env[next]);
+      }
+    } else {
+      prev[`process.env.${next}`] = JSON.stringify(params[next]);
+    }
+    return prev;
+  }, {});
+
+const env = dotenv.config().parsed || {};
+const envKeys = getEnvKeys(env);
+const processEnvKeys = getEnvKeys(process.env, 'REACT_APP_');
 
 const config = {
   target: ['web', 'es5'],
@@ -119,12 +139,12 @@ const config = {
     new NodePolyfillPlugin(),
     new CleanWebpackPlugin(),
     new DefinePlugin({
-      API_URL: '""',
-      PUBLIC_PATH: '""',
       REACT_APP_BUILD_DATE: JSON.stringify(buildDate),
       REACT_APP_BUILD_HASH: JSON.stringify(buildHash),
       REACT_APP_BUILD_VERSION: JSON.stringify(process.env.npm_package_version),
     }),
+    new DefinePlugin(envKeys),
+    new DefinePlugin(processEnvKeys),
   ].filter(Boolean),
 };
 
