@@ -1,0 +1,19 @@
+@import 'src/assets/style/variables';
+
+.pageContent {
+  width: 1280px;
+  margin-top: 65px;
+  margin-left: 20px;
+  margin-right: 20px;
+  box-sizing: border-box;
+
+  &_responsive {
+    width: 100%;
+  }
+
+  &_background {
+    background-color: $template-bg;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+}

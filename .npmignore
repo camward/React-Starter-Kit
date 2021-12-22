@@ -1,0 +1,5 @@
+# ignore all files
+*
+
+# include build folder
+!build/**/*.*

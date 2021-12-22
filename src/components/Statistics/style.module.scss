@@ -1,0 +1,20 @@
+@import 'src/assets/style/variables';
+
+.block {
+  display: flex;
+
+  &_icon {
+    height: 24px;
+    max-height: 24px;
+    width: 24px;
+    max-width: 24px;
+    fill: $status-purple;
+    & svg {
+      flex-shrink: 0;
+      *[fill^='#62'],
+      *[fill^='#2B'] {
+        fill: $status-purple;
+      }
+    }
+  }
+}

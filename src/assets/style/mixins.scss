@@ -1,0 +1,14 @@
+@mixin transition($prop: all, $time: .25s, $type: ease-out) {
+  transition: $prop $time $type;
+}
+
+@mixin disabled($events: none, $select: none) {
+  pointer-events: $events;
+  user-select: $select;
+}
+
+@mixin truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
