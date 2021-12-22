@@ -1,0 +1,29 @@
+#1
+npm init -y
+
+#2
+npm i -D webpack webpack-cli webpack-dev-server webpack-merge
+npm i -D @svgr/webpack clean-webpack-plugin html-loader mini-css-extract-plugin dotenv cross-env terser-webpack-plugin sass-loader resolve-url-loader css-loader style-loader postcss-loader postcss file-loader url-loader autoprefixer html-webpack-plugin webpack-bundle-analyzer ts-loader
+
+#3
+npm i -D babel-loader @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript babel-plugin-named-asset-import babel-plugin-inline-react-svg @babel/plugin-transform-runtime
+
+#4
+npm i react react-dom react-router-dom@5.2.1
+npm i -D typescript @types/react @types/react-dom @types/react-router-dom
+
+#5
+npm i -D prettier
+npm i -D husky
+npm i -D stylelint stylelint-config-recommended-scss stylelint-config-standard stylelint-scss
+npm i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser @babel/eslint-parser eslint eslint-config-airbnb eslint-config-jest-enzyme eslint-config-react-app eslint-plugin-babel eslint-plugin-import eslint-plugin-jest eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-testing-library eslint-webpack-plugin
+
+#6
+npm i -D jest jest-circus jest-resolve jest-watch-typeahead@0.6.5 babel-jest @types/jest @testing-library/jest-dom
+
+#7
+npm i axios camelcase classnames core-js date-fns identity-obj-proxy sass react-app-polyfill
+
+#8
+npm i redux react-redux redux-actions redux-devtools-extension redux-saga typesafe-actions
+npm i -D @types/react-redux @types/redux-actions @types/redux-mock-store redux-mock-store
